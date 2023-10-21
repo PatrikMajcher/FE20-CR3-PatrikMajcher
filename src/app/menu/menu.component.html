@@ -1,0 +1,49 @@
+<h2 class="text-center pt-5">La Carte</h2>
+<div class="container pb-5">
+  <div
+    class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 gap-5 justify-content-center pt-5"
+  >
+    <div class="card p-0 transformx" *ngFor="let product of products">
+      <div class="card-body">
+        <ng-container *ngIf="product.stock; else notAvailable">
+          <img
+            src="{{ product.img }}"
+            class="card-img-top position-relative"
+            alt="..."
+          />
+          <span
+            class="position-absolute translate-middle badge rounded-pill bg-danger"
+          >
+            TOP
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          <h5 class="card-title text-center pt-3">{{ product.name }}</h5>
+          <p class="card-text text-center">{{ product.description }}</p>
+          <p class="card-text text-center">Stock: {{ product.stock }}</p>
+          <p class="card-text text-center">{{ product.price }}$</p>
+          <div class="d-flex justify-content-around">
+            <a
+              routerLink="/details/{{ product.id }}"
+              class="btn btn-outline-danger"
+              >Details</a
+            >
+            <button
+              (click)="addItemToCart(product)"
+              class="btn btn-outline-danger"
+            >
+              Buy Now
+            </button>
+          </div>
+        </ng-container>
+        <ng-template #notAvailable>
+          <img
+            src="{{ product.img }}"
+            class="card-img-top position-relative"
+            alt="..."
+          />
+          <div class="text-danger text-center pt-5">Out of Stock</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container">
+  <div *ngFor="let product of cart">
+    <div class="d-flex align-items-center mb-5">
+      <div class="flex-shrink-0">
+        <img
+          src="{{ product.img }}"
+          class="img-fluid"
+          style="width: 150px"
+          alt="Product Image"
+        />
+      </div>
+      <div class="flex-grow-1 ms-3 text-end">
+        <h5>{{ product.name }}</h5>
+        <h5>Price:{{ product.price }}$</h5>
+        <h5>Quantity:{{ product.quantity }}</h5>
+        <button
+          (click)="incrementQuantity(product)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          +
+        </button>
+        <button
+          (click)="decrementQuantity(product)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          -
+        </button>
+        <button
+          (click)="removeProduct(product)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+    <hr />
+  </div>
+
+  <div *ngIf="cart.length > 0">
+    <div class="d-flex justify-content-between px-x">
+      <p class="fw-bold">Service Fee (10% of total price):</p>
+      <p class="fw-bold">{{ serviceFee() | currency : "USD" }}</p>
+    </div>
+    <div class="d-flex justify-content-between px-x">
+      <p class="fw-bold">Total Price (Included Service Fee):</p>
+      <p class="fw-bold">{{ totalPrice() | currency : "USD" }}</p>
+    </div>
+    <div
+      class="d-flex justify-content-between p-2 mb-2"
+      style="background-color: #ff6666"
+    >
+      <h5 class="fw-bold mb-0">Total Price with 15% Discount:</h5>
+      <h5 class="fw-bold mb-0">
+        {{ totalPriceWithDiscount() | currency : "USD" }}
+      </h5>
+    </div>
+  </div>
+
+  <!-- Customer Information Form -->
+
+  <div class="mt-4">
+    <h2>Customer Information</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          ngModel
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          class="form-control"
+          ngModel
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phone" class a="form-label">Phone Number:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="form-control"
+          ngModel
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          ngModel
+          required
+          email
+        />
+      </div>
+      <button type="submit" class="btn btn-outline-danger">Pay Now</button>
+    </form>
+  </div>
+</div>
