@@ -1,4 +1,18 @@
-# CodeReview3
+# Italian Restaurant Website
+
+Welcome to the Italian Restaurant Website project! This Angular application is designed using Bootstrap to create an elegant and user-friendly website for an Italian restaurant. The website includes detailed components for each food item and a shopping cart for a seamless ordering experience.
+
+## Features
+
+- **Angular Framework:** The project is developed using the Angular framework, providing a robust and modular structure for building single-page applications.
+
+- **Bootstrap Styling:** Bootstrap is utilized for responsive and visually appealing design, ensuring a consistent and polished look across the entire website.
+
+- **Food Details Components:** Each food item has a dedicated details component, providing users with comprehensive information about the dishes available.
+
+- **Shopping Cart:** The website includes a cart feature, allowing users to add items to their cart and proceed with the ordering process.
+
+- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
